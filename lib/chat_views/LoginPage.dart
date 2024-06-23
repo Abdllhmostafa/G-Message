@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:graduated_project/Consts_chat/consts.dart';
 import 'package:graduated_project/chat_views/RegisterPage.dart';
 import 'package:graduated_project/chat_views/chat_page.dart';
@@ -22,6 +23,8 @@ class _LoginPageState extends State<LoginPage> {
 
   String? password;
 
+  String? userName;
+
   GlobalKey<FormState> formKey = GlobalKey();
 
   bool isLoading = false;
@@ -41,6 +44,16 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SizedBox(
                 height: 30,
+              ),
+              textFeild(
+                onChange: (data) {
+                  userName = data;
+                },
+                hinttext: "Enter your name",
+                type: const Icon(Icons.person),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               textFeild(
                 onChange: (data) {
@@ -71,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     try {
                       await UserLogin();
                       Navigator.pushNamed(context, MainHomeView.id,
-                          arguments: email);
+                          arguments: {"email": email, "userName": userName});
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'invalid-email') {
                         ShowSnakeBar(context, 'Invalid Email');

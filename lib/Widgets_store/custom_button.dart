@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: kDarkBlueColor,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.circular(32),
         ),
         width: 250,
@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         ),
       ),

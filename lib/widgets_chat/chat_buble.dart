@@ -14,18 +14,33 @@ class ChatBuble extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         margin: EdgeInsets.all(8),
-        padding: EdgeInsets.only(left: 8, right: 16, top: 16, bottom: 16),
+        padding: EdgeInsets.only(left: 8, right: 16, top: 8, bottom: 8),
         decoration: BoxDecoration(
           color: kPrimaryColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(32),
-            topRight: Radius.circular(32),
-            bottomRight: Radius.circular(32),
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+            bottomRight: Radius.circular(16),
           ),
         ),
-        child: Text(
-          message.message,
-          style: TextStyle(color: Colors.white),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              message.userName,
+              style: TextStyle(color: Colors.yellow),
+            ),
+            SizedBox(
+              height: 6,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Text(
+                message.message,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -44,18 +59,32 @@ class ChatBubleForFriend extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: Container(
         margin: EdgeInsets.all(8),
-        padding: EdgeInsets.only(left: 8, right: 16, top: 16, bottom: 16),
+        padding: EdgeInsets.only(left: 8, right: 16, top: 8, bottom: 8),
         decoration: BoxDecoration(
           color: kDarkBlueColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(32),
-            topRight: Radius.circular(32),
-            bottomLeft: Radius.circular(32),
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+            bottomLeft: Radius.circular(16),
           ),
         ),
-        child: Text(
-          message.message,
-          style: TextStyle(color: Colors.white),
+        child: Column(
+          children: [
+            Text(
+              message.userName,
+              style: TextStyle(color: Colors.yellow),
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Text(
+                message.message,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );

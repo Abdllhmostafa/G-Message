@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:graduated_project/News/Home_view/home_page.dart';
 import 'package:graduated_project/booking_views/Views/Dashboard_screen.dart';
 import 'package:graduated_project/chat_views/LoginPage.dart';
 import 'package:graduated_project/chat_views/RegisterPage.dart';
 import 'package:graduated_project/chat_views/chat_home.dart';
 import 'package:graduated_project/chat_views/chat_page.dart';
 import 'package:graduated_project/chat_views/main_home_page.dart';
+import 'package:graduated_project/chat_views/onbordingSlider.dart';
 import 'package:graduated_project/chat_views/splashScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:graduated_project/store_views/cart_view.dart';
@@ -21,6 +23,7 @@ void main() async {
   );
   runApp(const MyApp());
 }
+//graduated_project
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,6 +33,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Poppins'),
         routes: {
           LoginPage.id: (context) => LoginPage(),
           RegisterView.id: (context) => RegisterView(),
@@ -38,11 +43,12 @@ class MyApp extends StatelessWidget {
           ChatHomeView.id: (context) => ChatHomeView(),
           UpdateProductPage.id: (context) => UpdateProductPage(),
           HomePageStore.id: (context) => HomePageStore(),
-          Dashboard.id: (context) => Dashboard(),
-          ProductView.id: (context) => ProductView(),
-          CartView.id: (context) => CartView(),
+          Dashboard.id: (context) => const Dashboard(),
+          ProductView.id: (context) => const ProductView(),
+          CartView.id: (context) => const CartView(),
+          NewsHomePage.id: (context) => NewsHomePage(),
         },
-        home: splashScreen(),
+        home: OnbordingSlider(),
       );
     });
   }

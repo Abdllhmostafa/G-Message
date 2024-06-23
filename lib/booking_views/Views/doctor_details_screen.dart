@@ -80,8 +80,6 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           ],
           backgroundColor: Colors.white,
         ),
-        // ... Your existing code ...
-
         body: Stack(
           alignment: Alignment.bottomCenter,
           children: [
@@ -144,43 +142,43 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       scrollDirection: Axis.horizontal,
                       children: [
                         date_Select(
-                          date: "21",
-                          maintext: "Mon",
-                          onTap: updateDateSelect,
-                        ),
-                        date_Select(
-                          date: "22",
-                          maintext: "Tue",
-                          onTap: updateDateSelect,
-                        ),
-                        date_Select(
-                          date: "23",
-                          maintext: "Wed",
-                          onTap: updateDateSelect,
-                        ),
-                        date_Select(
-                          date: "24",
+                          date: "27",
                           maintext: "Thu",
                           onTap: updateDateSelect,
                         ),
                         date_Select(
-                          date: "25",
+                          date: "28",
                           maintext: "Fri",
                           onTap: updateDateSelect,
                         ),
                         date_Select(
-                          date: "26",
+                          date: "29",
                           maintext: "Sat",
                           onTap: updateDateSelect,
                         ),
                         date_Select(
-                          date: "27",
+                          date: "30",
                           maintext: "Sun",
                           onTap: updateDateSelect,
                         ),
                         date_Select(
-                          date: "28",
+                          date: "1",
                           maintext: "Mon",
+                          onTap: updateDateSelect,
+                        ),
+                        date_Select(
+                          date: "2",
+                          maintext: "Tue",
+                          onTap: updateDateSelect,
+                        ),
+                        date_Select(
+                          date: "3",
+                          maintext: "Wed",
+                          onTap: updateDateSelect,
+                        ),
+                        date_Select(
+                          date: "4",
+                          maintext: "Thu",
                           onTap: updateDateSelect,
                         ),
                       ],

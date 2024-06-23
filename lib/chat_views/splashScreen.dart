@@ -13,7 +13,7 @@ class splashScreen extends StatelessWidget {
       splash: Image.asset(
         "Assets/images/image17.png",
       ),
-      nextScreen: const onbordingSlider(),
+      nextScreen: const OnbordingSlider(),
       splashIconSize: 300,
       splashTransition: SplashTransition.decoratedBoxTransition,
       animationDuration: const Duration(milliseconds: 30),

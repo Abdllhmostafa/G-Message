@@ -43,22 +43,22 @@ class _MainHomeViewState extends State<MainHomeView> {
           child: GNav(
             selectedIndex: currentIndex,
             // backgroundColor: kPrimaryColor,
-            rippleColor: Colors.grey, // tab button ripple color when pressed
-            hoverColor: Colors.grey, // tab button hover color
+            rippleColor: Colors.white, // tab button ripple color when pressed
+            hoverColor: Colors.white, // tab button hover color
             haptic: true, // haptic feedback
             tabBorderRadius: 30,
             tabActiveBorder: Border.all(
-                color: Colors.grey.shade800, width: 0.5), // tab button border
+                color: Colors.white, width: 0.5), // tab button border
             tabShadow: [
-              BoxShadow(color: kDarkBlueColor, blurRadius: 64)
+              BoxShadow(color: kPrimaryColor, blurRadius: 64)
             ], // tab button shadow
             curve: Curves.decelerate, // tab animation curves
             duration: Duration(milliseconds: 300), // tab animation duration
             gap: 3, // the tab button gap between icon and text
-            color: kDarkBlueColor, // unselected icon color
+            color: kPrimaryColor, // unselected icon color
             activeColor: Colors.white, // selected icon and text color
             iconSize: 30, // tab button icon size
-            tabBackgroundColor: kDarkBlueColor, // selected tab background color
+            tabBackgroundColor: kPrimaryColor, // selected tab background color
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             onTabChange: (value) {
               setState(() {

@@ -45,18 +45,27 @@ class CustomStack extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.red,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.green,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    ),
                   )
                 ],
               ),
             ),
           )),
           Positioned(
-            left: 60,
+            left: 30,
             bottom: 65,
-            child: Image.network(height: 100, width: 100, product.image),
+            child: Image.network(height: 80, width: 80, product.image),
           ),
         ],
       ),

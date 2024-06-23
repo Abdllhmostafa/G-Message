@@ -19,7 +19,7 @@ class _RegisterViewState extends State<RegisterView> {
   String? email;
 
   String? password;
-
+  String? userName;
   GlobalKey<FormState> formKey = GlobalKey();
 
   bool isLoading = false;
@@ -38,6 +38,13 @@ class _RegisterViewState extends State<RegisterView> {
           child: ListView(children: [
             const SizedBox(
               height: 30,
+            ),
+            textFeild(
+              onChange: (data) {
+                userName = data;
+              },
+              hinttext: "Enter your name",
+              type: const Icon(Icons.person),
             ),
             const SizedBox(
               height: 20,
@@ -70,7 +77,7 @@ class _RegisterViewState extends State<RegisterView> {
                   try {
                     await RsgesterUser();
                     Navigator.pushNamed(context, MainHomeView.id,
-                        arguments: email);
+                        arguments: {"email": email, "userName": userName});
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
                       ShowSnakeBar(context, 'weak-password');

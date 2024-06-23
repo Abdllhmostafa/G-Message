@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graduated_project/Api/doctor.dart';
+import 'package:graduated_project/Consts_chat/consts.dart';
+import 'package:graduated_project/News/Home_view/home_page.dart';
 import 'package:graduated_project/booking_views/Views/doctor_details_screen.dart';
 import 'package:graduated_project/booking_views/Views/doctor_search.dart';
 import 'package:graduated_project/booking_views/Views/find_doctor.dart';
@@ -8,6 +10,7 @@ import 'package:graduated_project/booking_views/Widgets/article.dart';
 import 'package:graduated_project/booking_views/Widgets/banner.dart';
 import 'package:graduated_project/booking_views/Widgets/listIcons.dart';
 import 'package:graduated_project/booking_views/Widgets/list_doctor1.dart';
+import 'package:graduated_project/store_views/home_page_store.dart';
 
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -39,7 +42,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: kPrimaryColor,
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
@@ -56,40 +59,40 @@ class _DashboardState extends State<Dashboard> {
         ],
         title: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               "Find your desire\nhealth solution",
               style: GoogleFonts.inter(
-                  color: Color.fromARGB(255, 51, 47, 47),
+                  color: Colors.white,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 1),
             ),
           ],
         ),
-        toolbarHeight: 100,
+        toolbarHeight: 80,
         elevation: 0,
       ),
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Column(children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(
             child: Container(
               height: MediaQuery.of(context).size.height * 0.06,
               width: MediaQuery.of(context).size.width * 0.9,
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: TextField(
                 onTap: () {
                   Navigator.push(
                       context,
                       PageTransition(
                           type: PageTransitionType.rightToLeft,
-                          child: find_doctor()));
+                          child: const find_doctor()));
                 },
                 textAlign: TextAlign.start,
                 textInputAction: TextInputAction.none,
@@ -99,7 +102,7 @@ class _DashboardState extends State<Dashboard> {
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                   focusColor: Colors.black26,
-                  fillColor: Color.fromARGB(255, 247, 247, 247),
+                  fillColor: const Color.fromARGB(255, 247, 247, 247),
                   filled: true,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -115,7 +118,7 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   ),
                   prefixIconColor: const Color.fromARGB(255, 3, 190, 150),
-                  label: Text("Search doctor, drugs, articles..."),
+                  label: const Text("Search doctor, drugs, articles..."),
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
@@ -125,7 +128,7 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           //Body Start fro here
@@ -140,7 +143,7 @@ class _DashboardState extends State<Dashboard> {
           ),
 
           //List icons (Can Edit in Widgets )
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           const banner(),
@@ -158,7 +161,7 @@ class _DashboardState extends State<Dashboard> {
                   style: GoogleFonts.inter(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
-                    color: Color.fromARGB(255, 46, 46, 46),
+                    color: const Color.fromARGB(255, 46, 46, 46),
                   ),
                 ),
                 GestureDetector(
@@ -182,7 +185,7 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -191,7 +194,7 @@ class _DashboardState extends State<Dashboard> {
               height: 180,
               width: 400,
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: doctors.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -229,15 +232,17 @@ class _DashboardState extends State<Dashboard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Health article",
+                  "Health News",
                   style: GoogleFonts.inter(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
-                    color: Color.fromARGB(255, 46, 46, 46),
+                    color: const Color.fromARGB(255, 46, 46, 46),
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, NewsHomePage.id);
+                  },
                   child: Text(
                     "See all",
                     style: GoogleFonts.inter(
@@ -249,7 +254,7 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           //Article banner here import from widget>article

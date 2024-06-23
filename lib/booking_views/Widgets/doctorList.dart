@@ -36,7 +36,7 @@ class doctorList extends StatelessWidget {
               ),
               //Doctor image Container
               Container(
-                height: MediaQuery.of(context).size.height * 0.1200,
+                height: MediaQuery.of(context).size.height * 0.15,
                 width: MediaQuery.of(context).size.width * 0.2400,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
@@ -49,7 +49,7 @@ class doctorList extends StatelessWidget {
                 width: 10,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.1200,
+                height: MediaQuery.of(context).size.height * 0.2,
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

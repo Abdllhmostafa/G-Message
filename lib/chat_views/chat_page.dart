@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter/widgets.dart';
 import 'package:graduated_project/Consts_chat/consts.dart';
 import 'package:graduated_project/models_chat/message.dart';
@@ -18,7 +17,12 @@ class ChatView extends StatelessWidget {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var email = ModalRoute.of(context)!.settings.arguments;
+    // var email = ModalRoute.of(context)!.settings.arguments;
+    // String userName = ModalRoute.of(context)!.settings.arguments.toString();
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final String? email = arguments?['email'] as String?;
+    final String? userName = arguments?['userName'] as String?;
     return StreamBuilder<QuerySnapshot>(
         stream: messages.orderBy(kCreatedAt, descending: true).snapshots(),
         builder: (context, snapshot) {
@@ -28,10 +32,16 @@ class ChatView extends StatelessWidget {
               messagesList.add(Message.fromJson(snapshot.data!.docs[i]));
             }
             return Scaffold(
+              //backgroundColor: Colors.greenAccent,
               appBar: AppBar(
+                iconTheme: IconThemeData(color: Colors.white),
+                backgroundColor: kPrimaryColor,
                 title: Padding(
                   padding: const EdgeInsets.only(left: 16),
-                  child: Text("Chat Room"),
+                  child: Text(
+                    "Chat Room",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
                 centerTitle: true,
               ),
@@ -59,7 +69,8 @@ class ChatView extends StatelessWidget {
                         {
                           kMessage: data,
                           kCreatedAt: DateTime.now(),
-                          'id': email
+                          'id': email,
+                          'userName': userName
                         },
                       );
                       controller.clear();
@@ -70,18 +81,19 @@ class ChatView extends StatelessWidget {
                       );
                     },
                     decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.send,
-                          color: kPrimaryColor,
+                        //hintText: 'Message your Medical inquiry',
+                        label: Text(
+                          'Message your Medical inquiry ',
+                          style: TextStyle(color: kDarkBlueColor),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: kPrimaryColor),
+                          borderSide:
+                              BorderSide(color: kDarkBlueColor, width: 3),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: kPrimaryColor,
-                          ),
+                          borderSide:
+                              BorderSide(color: kPrimaryColor, width: 2.5),
                           borderRadius: BorderRadius.circular(16),
                         )),
                   ),

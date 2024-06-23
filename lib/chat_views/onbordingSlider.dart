@@ -5,8 +5,8 @@ import 'package:graduated_project/Consts_chat/consts.dart';
 import 'package:graduated_project/chat_views/LoginPage.dart';
 import 'package:graduated_project/chat_views/RegisterPage.dart';
 
-class onbordingSlider extends StatelessWidget {
-  const onbordingSlider({super.key});
+class OnbordingSlider extends StatelessWidget {
+  const OnbordingSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
